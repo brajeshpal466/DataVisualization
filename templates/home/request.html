@@ -1,0 +1,53 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+   {%block content%}
+      
+      <center><h4>Send Your Data</h4></center>
+       {% for i in messages %} 
+            <p style="color: red;">{{i}}</p>
+       {%endfor%}
+      <form action="" method="POST" enctype="multipart/form-data">
+      	{% csrf_token %}
+        <input type="text" name="title" placeholder="About Your Data..." class="form-control">
+        <br>
+        <input type="file" name="filedata" class="form-control">
+        <br>
+        <select class="form-control" name="category">
+						<option>Select</option>
+						{%for i in cate%}
+							<option value="{{i.slug}}">{{i.cate}}</option>
+						{%endfor%}
+
+		</select>
+		<br>
+        <button type="submit" class="btn btn-primary">Send</button>
+
+      </form>
+      
+
+      <br>
+       <h3>Sent Files</h3>
+      <div class="row">
+
+      	{% for i in obj %}
+
+      	  <div class="col-12 col-md-6">
+      	  	  {{i.about}}
+      	  	  <br>
+
+      	  </div>
+
+      	   <div class="col-12 col-md-6">
+      	  	  <a>{{i.file}}</a>
+      	  	  <br>
+      	  	  
+      	  </div>
+
+      	{%endfor%}
+      </div>
+    
+
+ {%endblock content %}
+       

@@ -1,0 +1,34 @@
+{% extends 'Admincontrol/base.html' %}
+
+{% load static %}
+{%block upload %}<a href="upload_all_file_page">Upload Files <i class="fa fa-upload"></i></a>{%endblock%}
+
+{% block content %}
+	
+	
+			<center>
+			<h3>Pandemic Visualization</h3>
+		</center>
+		<br>
+
+		<table class="table table-striped table-hover" style="font-weight: bold;">
+			 {%for i in cate_file %}
+					<tr>
+						{% csrf_token %}
+						
+						<td>{{i.filename}}</td>
+						<td>{{i.uploaded_date}}</td>
+						<td>
+						<a href="#" class="btn btn-primary view-open" pid="{{i.id}}">View</a>&nbsp;
+						<a href="Visualize/{{i.id}}/" fid="{{i.id}}" class="btn btn-success">Visualize</a></td>
+					</tr>
+			{%endfor%}
+		</table>	
+
+   <a href="#" class="close-view-container" style="text-decoration: none;z-index: 10;">&times;</a>
+	<img src="{% static 'Admincontrol/images/GD.gif' %}" class="loading-img">
+   <div class="open-view-container">
+   	  
+   </div>
+
+{% endblock content %}

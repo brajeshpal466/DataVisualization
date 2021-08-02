@@ -1,0 +1,50 @@
+{% load static %}
+
+
+<div class="row">
+	<div class="col-sm-1"></div>
+	<div class="col-sm-5">
+
+		<strong>BINS</strong>
+		<input type="text" name="" class="form-control" placeholder="For Example:10,50,75....">
+		<br>
+		<strong>ORIENTATION</strong>
+		<input type="text" name="" class="form-control" placeholder="horizontal or vertical">
+
+		{% csrf_token %}
+		{% for i in final_all_labels2 %}
+			<input type="text" value="{{i}}" class="x_labels" name="" style="display: none;">
+			<br>
+		{% endfor%}
+	</div>
+	<div class="col-sm-5">
+		<strong>COLOR</strong>
+		<input type="text" name="" class="form-control bar_color" placeholder="color">
+		<br>
+		<strong>WIDTH</strong>
+		<input type="text" name="" class="form-control bar_width" placeholder="width">
+		<br><br>
+		<a class="btn btn-primary" id="draw_bar_chart_btn">DRAW</a>
+		<a href="" class="btn btn-danger">CLOSE</a>
+	</div>
+	<div class="col-sm-1"></div>
+</div>
+<br><br>
+<center><STRONG>CHART WILL SHOW DOWN</STRONG></center>
+<br>
+<div class="row" id="here">
+
+	<div class="col-sm-6">
+		<div id="Preview_Container_view3"></div>
+	</div>
+	<div class="col-sm-6">
+		<input type="text" name="" class="form-control" placeholder="Title" id="chart_title">
+		<br>
+		<textarea rows="8" cols="30" class="form-control" placeholder="Description..." id="chart_des"></textarea>
+		<br>
+		<a class="btn btn-primary btn-sm" id="Save_to_Database">Submit</a>
+
+	</div>
+	
+</div>
+<br><br>

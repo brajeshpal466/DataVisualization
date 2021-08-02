@@ -1,0 +1,99 @@
+body{
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+	font-family: 'Russo One', sans-serif;
+}*{
+	padding: 0;
+	margin: 0;
+}.img-container{
+	width: 100%;
+	height:90vh;
+	overflow: hidden;
+	margin: auto;
+}
+.set-img{
+	width: 100%;
+	height: 100vh;
+	background-position: center;
+	background-size: cover;
+	display: none;
+	pointer-events: none;
+}
+.set-img2{
+	width: 100%;
+	height: 100vh;
+	background-position: center;
+	background-size: cover;
+}
+
+
+.SignUp{
+	
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 60%;
+	min-height: 60vh;
+	background:rgba(0,10,10,0.6);
+	transform: translate(-50%,-50%);
+	left: 50%;
+	top: 50%;
+	padding: 1.2rem;
+	border-radius: .3rem;
+	z-index: -1;
+	visibility: hidden;
+	opacity: 0;
+	transition: all .25s ease;
+}.SignUp.active{
+	z-index: 2;
+	visibility: visible;
+	opacity: 1;
+}
+
+.SignIn{
+	
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 60%;
+	height: auto;
+	background:rgba(0,10,10,0.6);
+	transform: translate(-50%,-50%);
+	left: 50%;
+	top: 50%;
+	padding: 1.2rem;
+	border-radius: .3rem;
+	z-index: -1;
+	visibility: hidden;
+	opacity: 0;
+	transition: all .25s ease;
+}.SignIn.active{
+	z-index: 2;
+	visibility: visible;
+	opacity: 1;
+}
+
+
+/*profile section*/
+.profileSection{
+	margin-top: 50px;
+	background:rgba(0,0,0,0.1);
+	box-shadow: -1px -2px 4px -2px rgba(0,0,0,0.3);
+	padding: .54rem;
+}
+.profileSection ul{
+	width: 100%;
+	height: 100%;
+	list-style: none;
+}.profileSection ul li{
+	display: block;
+	width: 100%;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	line-height: 40px;
+}.profileSection ul li a{
+	display: block;
+	text-transform: uppercase;
+	text-decoration: none;
+	/*text-align: center;*/
+}

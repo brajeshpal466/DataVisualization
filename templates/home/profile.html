@@ -1,0 +1,16 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+      {%block content%}
+           {%for i in vd%}
+
+        {{i.des}}
+        <br>
+        {{i.figure|safe}}
+
+
+      {% endfor %}
+
+      {%endblock content%}
+       

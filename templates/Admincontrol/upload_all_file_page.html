@@ -1,0 +1,81 @@
+{% extends 'Admincontrol/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+	{%for msg in messages%}
+		{% if 'info' in msg.tags%}
+		<p style="color:green;">{{msg}}</p>
+		{%else%}
+		<p style="color:red;">{{msg}}</p>
+		{%endif%}
+	{%endfor%}
+	<form action="uploadfile/" method="POST" enctype="multipart/form-data">
+		{%csrf_token%}
+			<table class="table table-bordered">
+			<tr>
+				
+				<th>Choose Category<span style="color: red;">*</span></th>
+				<th>Choose File<span style="color: red;">*</span></th>
+			</tr>
+			<tr>
+				<td>
+					<select class="form-control" name="category">
+						<option>Select</option>
+						{%for i in cate%}
+							<option value="{{i.slug}}">{{i.cate}}</option>
+						{%endfor%}
+
+					</select>
+				</td>
+
+				<td>
+					<input type="file" name="files_upload">
+					<input type="submit" name="upload" value="Upload" class="btn btn-primary">
+				</td>
+			</tr>
+		</table>
+		
+	</form>
+		
+	
+
+
+
+		<div>
+			<button type="submit" class="btn btn-danger" id="Delete_Btn">Delete</button>
+			<p></p>
+			
+			<table class="table table-striped" style="font-size: 14px;">
+				
+				<tr class="table-primary">
+					<th>Select<p><input type="checkbox" name="" class="select_all_file"></p></th>
+					<th>File No</th>
+					<th>File Name</th>
+					<th>File Size</th>
+					<th>File Type</th>
+					<th>Uploaded Date</th>
+					<th>Category</th>
+				</tr>
+
+				{% for data in filedata %}
+					<tr class="table-striped ">
+						<td><input type="checkbox" value="{{data.id}}" name="" class="child_checkbox_selection"></td>
+						<td>{{data.id}}</td>
+						<td>{{data.filename}}</td>
+						<td>{{data.filesize}}</td>
+						<td>{{data.filetype}}</td>
+						<td>{{data.uploaded_date}}</td>
+						<td>{{data.cate}}</td>
+					</tr>
+
+				{%endfor%}
+
+			</table>
+
+		</div>
+
+
+	
+{% endblock content %}

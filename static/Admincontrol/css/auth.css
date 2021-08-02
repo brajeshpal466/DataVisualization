@@ -1,0 +1,19 @@
+*{
+	box-sizing: border-box;
+	display: block;
+	padding: 0;
+	margin:0;
+	/*color: #FFFFFF;*/
+}.Field_Container{
+	
+	position: absolute;
+	transform: translate(-50%,-50%);
+	width: 50%;
+	height: 50%;
+	background: #FFFFFF;
+	left: 50%;
+	top: 50%;
+	z-index: 2;
+	border-radius: .223em;
+	box-shadow: -2px 1px 7px 2px rgba(0,0,0,0.8);
+}

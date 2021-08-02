@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'Admincontrol/css/auth.css' %}">
+</head>
+<body >
+<br>
+<center><h1 style="">Admin Signin</h1>
+<br><br>
+       {% for ms in messages %}
+			<p style="color: red;">{{ms}}</p>
+		{%endfor%}
+</center>
+	<div class="Field_Container">
+		<br>
+
+		<center><form action="" method="POST">
+			{% csrf_token %}
+			<label style="font-weight: bold;font-size: 20px;">Username</label>
+			<input type="text" name="username" class="form-control" style="width: 50%;" placeholder="username">
+			<br>
+			<label style="font-weight: bold;font-size: 20px;">Password</label>
+			<input type="Password" name="password" class="form-control" style="width: 50%;" placeholder="*****">
+			<br>
+			<button class="btn btn-primary btn-md">SignIn</button>
+		</form>
+	</center>
+	</div>
+
+</body>
+</html>

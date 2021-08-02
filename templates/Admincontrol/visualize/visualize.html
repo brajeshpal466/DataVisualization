@@ -1,0 +1,48 @@
+{% extends 'Admincontrol/base.html' %}
+
+{% load static %}
+
+{%block upload %}<a href="upload_all_file_page">Upload Files <i class="fa fa-upload"></i></a>{%endblock%}
+{% block content %}
+	 <h3 class="btn btn-danger">Select Chart</h3>
+   <br>
+   <br>
+      <strong>
+      	<input type="radio" class="Chart" value="pie_chart" id="pie_chart" name="Charts">&nbsp;Pie Chart
+   		<br>
+   		<input type="radio" class="Chart" value="bar_chart" id="bar_chart" name="Charts">&nbsp;Bar Chart
+   		<br>
+   		<!-- <input type="radio" class="Chart" value="histogram" id="histogram" name="Charts">&nbsp;Histogram -->
+
+  		<br>
+   		<br>
+      </strong>
+	<h3 class="btn btn-success">Select Values</h3>
+	<br><br>
+	<div class="row">
+	{% for col in cols%}
+		<div class="col-sm-3">
+			{%csrf_token%}
+
+			<input type="checkbox" class="all_fields" name="" value="{{col}}">&nbsp;&nbsp;{{col}}
+			
+		</div>	
+	{%endfor%}
+   </div>
+<br><br>
+  
+		<div id="Preview_Container_view">
+
+		<a href="#" style="text-align: center;font-size: 34px;color: red;margin-left: 23px;text-decoration: none;font-weight: bold;" id="close_preview_container">&times;</a>
+			<div id="Preview_Container_view2" style="width: 100%;height: 100%;"></div>
+			
+		</div>   		
+   		<br>
+   		<div id="warning-msg">
+   			<a href="#" id="warning-msg-close">&times;</a>
+   			<p id="warning-msg-p"></p>
+   		</div>
+   		<a href="#" class="btn btn-primary" id="Preview_Container">Preview</a>
+   
+
+{% endblock content %}
